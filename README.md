@@ -1,4 +1,7 @@
 # Cifar10
+The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class.\
+There are 50000 training images and 10000 test images.
+
 ## MLP Vs CNN
 
 1. **cifar_mlp.py file**
@@ -6,7 +9,6 @@
    i built a mlp model with 4-hidden layers. \
    **achieving Accuracy: 0.5588 - loss: 1.2802**
 
-   
 2. **cifar_cnn.py file**
    building a simple CNN model with bunch of convolutional layes, normalization layers, and pooling layers \
    **achieving Accuracy: 0.8409 - loss: 0.5430**
