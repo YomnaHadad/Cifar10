@@ -1,10 +1,7 @@
 import keras
 from keras.models import Sequential
-from keras.layers import Dense
 from keras.datasets import cifar10
-import keras
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, BatchNormalization, Flatten, Input
+from keras.layers import Conv2D, MaxPooling2D, Dropout, BatchNormalization, Flatten, Input
 import matplotlib.pyplot as plt
 
 (x_train, y_train), (x_test, y_test) = cifar10.load_data()
@@ -63,20 +60,16 @@ if __name__ == "__main__" :
   print(f"x_test shape: {x_test.shape}")
   print(f"y_test shape: {y_test.shape}")
 
-  x_train = x_train.reshape(x_train.shape[0], -1)
-  x_test  = x_test.reshape(x_test.shape[0], -1)
-
   x_train = x_train / 255.
   x_test = x_test / 255.
 
-  model.compile(optimizer=keras.optimizers.Adam(learning_rate=1e-3), loss='sparse_categorical_crossentropy', metrics=["accuracy"])
-  print(model.summary())
+  model2.compile(optimizer=keras.optimizers.Adam(learning_rate=1e-3), loss='sparse_categorical_crossentropy', metrics=["accuracy"])
+  print(model2.summary())
 
-  history = model.fit(x_train, y_train, epochs= 100, batch_size=32, verbose=2, validation_split=0.1, callbacks=callbacks)
+  history = model2.fit(x_train, y_train, epochs= 100, batch_size=32, verbose=2, validation_split=0.1, callbacks=callbacks)
 
   ### Testing
-  test_loss, test_accuracy = model.evaluate(x_test, y_test)
+  test_loss, test_accuracy = model2.evaluate(x_test, y_test)
 
   plot_loss(history)
   plot_accuracy(history)
-  
